@@ -1,15 +1,31 @@
 def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
-    num_words = get_num_words(text)
-    print(f'{num_words} words founded in the book.')
-    
-def get_num_words(text):
-    words = text.split()
-    return len(words)
+    lowered_text = text.lower()
+    words = get_words(lowered_text)
+    chararcters_number = get_num_characters(words)
+
+    return print(f'List of characters count: {chararcters_number}')
+
 
 def get_book_text(path):
-    with open(path) as f: 
+    with open(path) as f:
         return f.read()
-    
+
+def get_words(text):
+    words = text.split()
+    return words
+
+def get_num_characters(list):
+    charachters_count = {}
+
+    for word in list:
+        for char in word:
+            if char not in charachters_count:
+                charachters_count[char] = 1
+            else:
+                charachters_count[char] += 1
+
+    return charachters_count
+
 main()
