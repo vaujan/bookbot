@@ -4,8 +4,8 @@ def main():
     lowered_text = text.lower()
     words = get_words(lowered_text)
     chararcters_number = get_num_characters(words)
-
-    return print(f'List of characters count: {chararcters_number}')
+    sorted_charachters_number = dict(sorted(chararcters_number.items()))
+    return print(f'List of the characters number are: {sorted_charachters_number}')
 
 
 def get_book_text(path):
